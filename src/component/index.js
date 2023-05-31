@@ -1,10 +1,10 @@
-function countdown(hours, minutes, seconds) {
+function countdown( minutes) {
     const dayElement = document.querySelector('.day');
     const hourElement = document.querySelector('.hour');
     const minuteElement = document.querySelector('.minute');
     const secondElement = document.querySelector('.second');
   
-    let totalSeconds = hours * 3600 + minutes * 60 + seconds;
+    let totalSeconds = minutes*60;
   
     let interval = setInterval(function () {
       totalSeconds--;
@@ -18,8 +18,14 @@ function countdown(hours, minutes, seconds) {
       hourElement.textContent = String(hours).padStart(2, '0');
       minuteElement.textContent = String(minutes).padStart(2, '0');
       secondElement.textContent = String(remainingSeconds).padStart(2, '0');
+      if(minutes<0){
+        let change = document.querySelector('.container');
+        change.innerHTML = "minutes cannot be negative";
+        change.style.color = "red";
+      }
+     
   
-      if (totalSeconds <= 0) {
+      if (totalSeconds = 0) {
         clearInterval(interval);
         let change = document.querySelector('.container');
         change.innerHTML = "Time is up!";
@@ -28,7 +34,7 @@ function countdown(hours, minutes, seconds) {
     }, 1000);
   }
   
-  countdown(46, 70,0 );
+  countdown(-300 );
   
 
 
